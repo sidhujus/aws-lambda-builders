@@ -585,11 +585,11 @@ class SDistMetadataFetcher(object):
         parser = FeedParser()
         parser.feed(data)
         return parser.close()
-
+#this is where things are being weird i think
     def _get_pkg_info_filepath(self, package_dir):
         setup_py = self._osutils.joinpath(package_dir, "setup.py")
         script = self._SETUPTOOLS_SHIM % setup_py
-
+        print(f"THIS IS THE THING HAPPENING SO YOU SHOULD LOOK HERE \n{script}\n\n\nTHIS IS THE END OF THE THING?")
         cmd = [sys.executable, "-c", script, "--no-user-cfg", "egg_info", "--egg-base", "egg-info"]
         egg_info_dir = self._osutils.joinpath(package_dir, "egg-info")
         self._osutils.makedirs(egg_info_dir)
