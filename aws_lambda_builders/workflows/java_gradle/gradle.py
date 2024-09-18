@@ -33,7 +33,7 @@ class SubprocessGradle(object):
         if not self.os_utils.exists(build_file):
             raise BuildFileNotFoundError(build_file)
 
-        args = ["build", "--build-file", build_file]
+        args = ["build", "--build-file", build_file, "--debug", "--stacktrace"]
         if cache_dir is not None:
             args.extend(["--project-cache-dir", cache_dir])
         if properties is not None:
